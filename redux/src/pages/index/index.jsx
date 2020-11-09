@@ -4,6 +4,8 @@ import Taro, { Component, Config } from '@tarojs/taro'
 <%} else { -%>
 import Taro, { Component } from '@tarojs/taro'
 <%}-%>
+import { getShareData } from '@/src/utils/function'
+import WeworkWatermark from '@/src/components/WeworkWatermark'
 import { View, Button, Text } from '@tarojs/components'
 import { connect } from '@tarojs/redux'
 
@@ -83,6 +85,10 @@ class <%= _.capitalize(pageName) %> extends Component {
 
   componentDidHide () { }
 
+  onShareAppMessage(obj) {
+    return getShareData()
+  }
+
   render () {
     return (
       <View className='<%= pageName %>'>
@@ -91,6 +97,7 @@ class <%= _.capitalize(pageName) %> extends Component {
         <Button className='dec_btn' onClick={this.props.asyncAdd}>async</Button>
         <View><Text>{this.props.counter.num}</Text></View>
         <View><Text>Hello, World</Text></View>
+        <WeworkWatermark />
       </View>
     )
   }
