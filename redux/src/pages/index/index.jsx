@@ -6,6 +6,7 @@ import Taro, { Component } from '@tarojs/taro'
 <%}-%>
 import { getShareData } from '@/src/utils/function'
 import WeworkWatermark from '@/src/components/WeworkWatermark'
+import GlobalComponents from '@/src/components/GlobalComponents'
 import { View, Button, Text } from '@tarojs/components'
 import { connect } from '@tarojs/redux'
 
@@ -98,6 +99,7 @@ class <%= _.capitalize(pageName) %> extends Component {
         <View><Text>{this.props.counter.num}</Text></View>
         <View><Text>Hello, World</Text></View>
         <WeworkWatermark />
+        <GlobalComponents />
       </View>
     )
   }
